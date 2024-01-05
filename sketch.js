@@ -21,7 +21,7 @@ function setup() {
     particles[i] = new Particle();
   }
 
-  background(255);
+  background(0);
 
 }
 
@@ -42,7 +42,7 @@ function draw() {
       v.setMag(0.5);
       flowfield[idx] = v;
 
-      stroke(0, 50);
+
       // push();
       // translate(x * scl, y * scl);
       // rotate(v.heading());
@@ -63,5 +63,4 @@ function draw() {
     particles[i].overflow();
   }
 
-  fr.html(floor(frameRate()));
 }
