@@ -21,11 +21,11 @@ function setup() {
     particles[i] = new Particle();
   }
 
+  background(255);
+
 }
 
 function draw() {
-  background(255);
-
   var yoff = 0;
 
   for (var y = 0; y < rows; y++) {
@@ -39,7 +39,7 @@ function draw() {
 
       var v = p5.Vector.fromAngle(angle);
 
-      v.setMag(0.75);
+      v.setMag(0.5);
       flowfield[idx] = v;
 
       stroke(0, 50);
