@@ -1,6 +1,6 @@
 function Particle() {
-  this.pos = createVector(0, 0);
-  this.vel = createVector(0, 0);
+  this.pos = createVector(random(width), random(height));
+  this.vel = p5.Vector.random2D();
   this.acc = createVector(0, 0);
 
   this.update = function() { 
@@ -13,9 +13,16 @@ function Particle() {
     this.acc.add(force);
   }
 
-  this.show() = function() { 
+  this.show = function() { 
     stroke(0);
     point(this.pos.x, this.pos.y);
+  }
+
+  this.overflow = function() { 
+    if(this.pos.x < 0) this.pos.x = width;
+    if(this.pos.x > width) this.pos.x = 0;
+    if(this.pos.y < 0) this.pos.y = height; 
+    if(this.pos.y > height) this.pos.y = 0;
   }
 
 }
