@@ -1,9 +1,12 @@
 var inc = 0.1;
-var scl = 50; 
-var rows, cols; 
+var scl = 10;
 
+var cols, rows;
 var zoff = 0;
-var fr; 
+var fr;
+
+var particles = [];
+var flowfield = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,35 +14,128 @@ function setup() {
   cols = floor(width / scl);
   rows = floor(height / scl);
 
-  fr = createP('')
+  flowfield = new Array(rows * cols);
+
+  fr = createP("");
+  for (var i = 0; i < 1000; i++) {
+    particles[i] = new Particle();
+  }
+
+  background(0);
+
 }
 
 function draw() {
+  var yoff = 0;
 
-  background(255);
-  
-  var yoff = 0; 
-  for(var y = 0; y < rows; y++) { 
-    var xoff = 0; 
+  for (var y = 0; y < rows; y++) {
+    var xoff = 0;
 
-    for(var x = 0; x < cols; x++) { 
+    for (var x = 0; x < cols; x++) {
 
-      var angle = noise(xoff, yoff, zoff) * TWO_PI; 
+      var idx = (x + y * cols);
+
+      var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
+
       var v = p5.Vector.fromAngle(angle);
 
+      v.setMag(0.5);
+      flowfield[idx] = v;
+
+
+      // push();
+      // translate(x * scl, y * scl);
+      // rotate(v.heading());
+      // strokeWeight(1)
+      // line(0, 0, scl, 0);
+      // pop();
+
       xoff += inc;
-
-      stroke(0);
-      push();
-      translate( x * scl, y * scl);
-      rotate(v.heading());
-      line(0, 0, scl, 0);
-
-      pop();
     }
     yoff += inc;
-    zoff += 0.005; 
+    zoff += 0.0003;
   }
 
-  fr.html(floor(frameRate()));
-} 
+  for (var i = 0; i < particles.length; i++) {
+    particles[i].follow(flowfield);
+    particles[i].update();
+    particles[i].show();
+    particles[i].overflow();
+  }
+
+}
+
+
+
+
+
+var inc = 0.01 ;
+var scl = 10;
+
+var cols, rows;
+var zoff = 0;
+var fr;
+
+var particles = [];
+var flowfield = [];
+
+function setup() {
+  createCanvas(windowHeight, windowWidth);
+
+  cols = floor(width / scl);
+  rows = floor(height / scl);
+
+  flowfield = new Array(rows * cols);
+
+  fr = createP("");
+  for (var i = 0; i < 750; i++) {
+    particles[i] = new Particle();
+  }
+  
+  background(0);
+ 
+
+}
+
+function draw() {
+  background(0);
+
+  var yoff = 0;
+
+  for (var y = 0; y < rows; y++) {
+    var xoff = 0;
+
+    for (var x = 0; x < cols; x++) {
+
+      var idx = (x + y * cols);
+
+      var angle = noise(xoff, yoff, zoff) * TWO_PI * 8;
+
+      var v = p5.Vector.fromAngle(angle);
+
+      v.setMag(1);
+      flowfield[idx] = (v);
+
+
+      push();
+      stroke(255);
+      translate(x * scl, y * scl);
+      rotate(v.heading());
+      strokeWeight(1)
+      line(0, 0, 10, 0);
+      pop();
+
+      xoff += inc;
+    }
+    yoff += inc;
+    zoff += 0.00012; 
+  }
+
+  // for (var i = 0; i < particles.length; i++) {
+  //   particles[i].follow(flowfield);
+  //   particles[i].update();
+  //   particles[i].show();
+  //   particles[i].overflow();
+  // }
+
+}

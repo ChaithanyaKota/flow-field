@@ -11,13 +11,14 @@ var flowfield = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  colorMode(HSB, 255);
   cols = floor(width / scl);
   rows = floor(height / scl);
 
   flowfield = new Array(rows * cols);
 
   fr = createP("");
-  for (var i = 0; i < 1000; i++) {
+  for (var i = 0; i < 750; i++) {
     particles[i] = new Particle();
   }
 
@@ -35,11 +36,11 @@ function draw() {
 
       var idx = (x + y * cols);
 
-      var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
+      var angle = noise(xoff, yoff, zoff) * TWO_PI * 8;
 
       var v = p5.Vector.fromAngle(angle);
 
-      v.setMag(0.5);
+      v.setMag(0.25);
       flowfield[idx] = v;
 
 
@@ -53,7 +54,7 @@ function draw() {
       xoff += inc;
     }
     yoff += inc;
-    zoff += 0.0003;
+    zoff += 0.00012;
   }
 
   for (var i = 0; i < particles.length; i++) {
