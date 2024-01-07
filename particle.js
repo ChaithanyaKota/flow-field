@@ -28,7 +28,7 @@ function Particle() {
 
   this.show = function () {
     
-    stroke(this.clr, 255, 255, 25);
+    stroke(this.clr, 255, 255, 10);
     this.clr = this.clr + 1;
 
     if (this.clr > 255) {
@@ -66,3 +66,4 @@ function Particle() {
     }
   };
 }
+

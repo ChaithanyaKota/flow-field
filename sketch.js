@@ -11,6 +11,8 @@ var flowfield = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  // noiseSeed(50);
+
   colorMode(HSB, 255);
   cols = floor(width / scl);
   rows = floor(height / scl);
@@ -27,6 +29,8 @@ function setup() {
 }
 
 function draw() {
+
+  // background(0);
   var yoff = 0;
 
   for (var y = 0; y < rows; y++) {
