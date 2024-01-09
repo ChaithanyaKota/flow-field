@@ -58,7 +58,7 @@ function draw() {
       xoff += inc;
     }
     yoff += inc;
-    zoff += 0.00012;
+    zoff += 0.00013;
   }
 
   for (var i = 0; i < particles.length; i++) {
