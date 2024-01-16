@@ -48,6 +48,9 @@ function draw() {
       flowfield[idx] = v;
 
 
+
+      /* Vectors */ 
+
       // push();
       // translate(x * scl, y * scl);
       // rotate(v.heading());
