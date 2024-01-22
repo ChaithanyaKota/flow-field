@@ -55,6 +55,7 @@ function draw() {
       // translate(x * scl, y * scl);
       // rotate(v.heading());
       // strokeWeight(1)
+      // stroke(255);
       // line(0, 0, scl, 0);
       // pop();
 
