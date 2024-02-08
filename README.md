@@ -10,4 +10,10 @@ Perlin noise is a gradient noise function often used in computer graphics to cre
 Perlin noise is a pseudo-random gradient noise function. It's widely used for creating natural-seeming randomness and smooth transitions. The function assigns values to each point in space, creating a continuous gradient that can be used for various applications, including procedural texture generation, terrain generation, and more.
 
 ## Flowfield
-The flowfiled involves associating each point in space with a vecor the defines the direction of movement at that points. Using Perlin noise to determine the vector values creates a dynamic flowfield where the vectors change smoothly across the canvas. When particles move through this flowfield, they follow the direction of the vectors, resulting in an organic movement pattern. 
+The flowfiled involves associating each point in space with a vecor the defines the direction of movement at that points. Using Perlin noise to determine the vector values creates a dynamic flowfield where the vectors change smoothly across the canvas. 
+
+<img width="720" alt="Screenshot 2024-02-07 at 9 20 48 PM" src="https://github.com/chaithanyakota/flow-field/assets/86480711/5a58e93c-1ed7-437b-bafb-7e717545c16f">
+
+
+
+When particles move through this flowfield, they follow the direction of the vectors, resulting in an organic movement pattern. 
