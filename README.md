@@ -12,7 +12,7 @@ Perlin noise is a pseudo-random gradient noise function. It's widely used for cr
 ## Flowfield
 The flowfiled involves associating each point in space with a vecor the defines the direction of movement at that points. Using Perlin noise to determine the vector values creates a dynamic flowfield where the vectors change smoothly across the canvas. 
 
-<img width="720" alt="Screenshot 2024-02-07 at 9 20 48 PM" src="https://github.com/chaithanyakota/flow-field/assets/86480711/5a58e93c-1ed7-437b-bafb-7e717545c16f">
+<img width="480" alt="Screenshot 2024-02-07 at 9 20 48 PM" src="https://github.com/chaithanyakota/flow-field/assets/86480711/5a58e93c-1ed7-437b-bafb-7e717545c16f">
 
 
 
